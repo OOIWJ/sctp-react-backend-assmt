@@ -28,12 +28,22 @@ CREATE TABLE shopping_cart (
 );
 
 -- add to cart w/o login
+-- CREATE TABLE cart_items (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     cart_id INT NOT NULL,
+--     book_id INT NOT NULL,
+--     quantity INT NOT NULL CHECK (Quantity > 0),
+--     FOREIGN KEY (cart_id) REFERENCES shopping_cart(id) ON DELETE CASCADE,
+--     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+-- );
+
 CREATE TABLE cart_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    cart_id INT NOT NULL,
+    user_id INT NOT NULL,
     book_id INT NOT NULL,
     quantity INT NOT NULL CHECK (Quantity > 0),
-    FOREIGN KEY (cart_id) REFERENCES shopping_cart(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
 );
 

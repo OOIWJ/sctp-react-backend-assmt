@@ -1,7 +1,7 @@
 const pool = require('../database');
 
 async function getAllBooks() {
-  const [rows] = await pool.query('SELECT id, title, author, CAST(price AS DOUBLE) AS price, stock, image FROM books');
+  const [rows] = await pool.query('SELECT id, title, author, CAST(price AS DOUBLE) AS price, stock, image, description FROM books');
   return rows;
 }
 

@@ -4,11 +4,10 @@ require('dotenv').config();
 
 const pool = require('./database');
 
-
-
 // make sure this comes AFTER dotenv config
 const booksRouter = require('./routes/books');
 const userRoutes = require('./routes/users');
+const cartRoutes = require('./routes/cart');
 
 const app = express();
 
@@ -19,6 +18,7 @@ app.use(cors());
 // Routes
 app.use('/api/books', booksRouter);
 app.use('/api/users', userRoutes);
+app.use('/api/cart', cartRoutes);
 
 app.get('/books', (req, res) => {
 
